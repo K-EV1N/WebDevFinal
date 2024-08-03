@@ -1,0 +1,159 @@
+  h1 {
+    font-size: 20px;
+  }
+  
+  
+  .addButton {
+    background-color: hsl(125, 47%, 54%);
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-weight: bold;
+    height: 25px;
+    width: 75px;
+    border: none;
+    border-radius: 5px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: background-color 0.6s ease, transform 0.6s ease;
+  }
+  
+  .addButton:hover {
+    background-color: hsl(125, 47%, 44%);
+    transform: scale(1.075);
+    box-shadow: 0 0 20px 1px hsl(131, 100%, 50%);
+  }
+
+  .backButton {
+    position: relative;
+    top: -100px;
+    left: -130px;
+    background-color: hsl(17, 100%, 63%);
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-weight: bold;
+    height: 25px;
+    width: 50px;
+    border: none;
+    border-radius: 5px;
+    margin-left: 20px;
+    cursor: pointer;
+    transition: background-color 0.6s ease, transform 0.6s ease;
+  }
+
+  .backButton:hover {
+    background-color: hsl(17, 100%, 53%);
+    transform: scale(1.075);
+    box-shadow: 0 0 20px 1px hsl(28, 100%, 50%);
+  }
+  
+  .deleteButton {
+    background-color: hsl(10, 90%, 50%);
+    height: 25px;
+    width: 75px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+    flex-shrink: 0;
+    transition: background-color 0.6s ease, transform 0.6s ease;
+  }
+  
+  .deleteButton:hover {
+    background-color: hsl(10, 100%, 55%);
+    transform: scale(1.075);
+    box-shadow: 0 0 10px 1px hsl(0, 100%, 50%);
+  }
+
+  .viewButton {
+    background-color: hsl(203, 90%, 50%);
+    height: 25px;
+    width: 75px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+    margin-left: 10px;
+    flex-shrink: 0;
+    transition: background-color 0.6s ease, transform 0.6s ease;
+  }
+
+  .viewButton:hover {
+    transform: scale(1.075);
+    box-shadow: 0 0 10px 1px hsl(193, 100%, 50%);
+  }
+  
+  .input {
+    padding-left: 10px;
+    height: 25px;
+    width: 200px;
+    border-radius: 5px;
+    border: none;
+    background-color: #f0f0f0;
+  }
+  
+  .box {
+    display: inline-block;
+    background-color: hsl(0, 0%, 88%);
+    border-radius: 10px;
+    height: 630px;
+    width: 320px;
+    border: solid;
+    border-color: rgb(152, 148, 148);
+    align-items: center;
+    text-align: center;
+    margin: 15px;
+    box-shadow: 5px 5px 5px hsla(0, 0%, 0%, 0.5);
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .taskList {
+    padding: 0px;
+    max-height: 630px;
+    overflow-y: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  
+  .taskList li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 8px;
+    background-color: hsla(0, 0%, 97%);
+    margin-bottom: 10px;
+    border: solid 1px hsla(0, 0%, 85%, 0.75);
+    border-radius: 10px;
+  }
+  
+  .text {
+    flex-grow: 1;
+    min-width: 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+  }
+
+  .buttonContainer {
+    display: flex;
+    gap: 3px;
+    flex-shrink: 0;
+    align-items: center;
+  }
+
+  .noTasksMessage {
+    font-weight: bold;
+  }
+
