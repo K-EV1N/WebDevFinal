@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function Home() {
     return (
         <div className={HomeCSS['buttonContainer']}>
-            <Link to="/SingleEmployeeView"><button>Employees</button></Link>
+            <Link to="/AllEmployeeView"><button>Employees</button></Link>
             <Link to="/"><button>Tasks</button></Link>
         </div>
         

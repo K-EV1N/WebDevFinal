@@ -60,7 +60,7 @@
 
 
                     <button className={SingleEmployeeViewCSS['addButton']} onClick={addTask}>Add Task</button>
-                    <Link to="/"><button className={SingleEmployeeViewCSS['backButton']}>Back</button></Link>
+                    <Link to="/AllEmployeeView"><button className={SingleEmployeeViewCSS['backButton']}>Back</button></Link>
 
                     {tasks.length === 0 ? (
                         <p className={SingleEmployeeViewCSS['noTasksMessage']}>No tasks assigned to this employee.</p>
