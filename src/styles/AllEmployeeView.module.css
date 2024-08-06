@@ -99,3 +99,26 @@
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
   }
+
+  .AddEmployee {
+    position: absolute;
+    margin-top: 10px;
+    margin-right: 10px;
+    top: 10px;
+    right: 10px;
+    height: 60px;
+    width: 120px;
+    font-weight: bold;
+    font-size: 15px;
+    border-radius: 5px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    background-color: hsl(108, 75%, 47%);
+    transition: background-color 0.6s ease, transform 0.6s ease;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .AddEmployee:hover {
+    transform: scale(1.075);
+  }

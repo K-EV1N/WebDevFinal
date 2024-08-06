@@ -7,6 +7,7 @@ import SingleEmployeeView from './pages/SingleEmployeeView'
 import SingleEmployeeViewCSS from '../src/styles/SingleEmployeeView.module.css'
 import AllEmployeeView from './pages/AllEmployeeView'
 import AllEmployeeViewCSS from '../src/styles/AllEmployeeView.module.css'
+import AddEmployee from './pages/AddEmployee'
 
 
 function App() {
@@ -34,6 +35,7 @@ const initialEmployees = [
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/AllEmployeeView" element={<AllEmployeeView initialEmployees={initialEmployees}/>}/>
+        <Route path="/AddEmployee" element={<AddEmployee/>}/>
         <Route path="/SingleEmployeeView" element={<SingleEmployeeView employee={employeeData}/>}/>
       </Routes>
     </Router>
