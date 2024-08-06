@@ -1,0 +1,101 @@
+
+
+.box {
+    border: 1px solid hsl(0, 0%, 54%);
+    border-radius: 10px;
+    box-shadow: 5px 5px 8px hsla(0, 0%, 0%, 0.649);
+    padding: 20px;
+    margin: 25px;
+    height: 350px;
+    width: 250px;
+    text-align: center;
+    display: inline-block;
+    position: relative;
+    transition: background-color 0.6s ease, transform 0.25s ease;
+
+
+}
+
+.box:hover {
+    transform: scale(1.2);
+
+}
+
+.profile {
+    border-radius: 50%;
+    box-shadow: 5px 5px 20px rgb(199, 239, 255);
+    object-fit: cover;
+    height: 150px;
+    width: 150px;
+
+}
+
+.name {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    height: 30px;
+    color: rgb(0, 0, 0);
+    box-shadow: 5px 3px 3px rgb(201, 201, 201);
+}
+
+.info {
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 20px;
+}
+
+.deleteButton {
+    background-color: hsl(10, 90%, 50%);
+    height: 25px;
+    width: 75px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    display: block;
+    flex-shrink: 0;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    transition: background-color 0.6s ease, transform 0.6s ease;
+}
+
+.deleteButton:hover {
+    background-color: hsl(10, 100%, 55%);
+    transform: scale(1.075);
+    box-shadow: 0 0 10px 1px hsl(0, 100%, 50%);
+  }
+
+  .viewButton {
+    background-color: hsl(203, 90%, 50%);
+    height: 25px;
+    width: 75px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    flex-shrink: 0;
+    transition: background-color 0.6s ease, transform 0.6s ease;
+  }
+
+  .viewButton:hover {
+    transform: scale(1.075);
+    box-shadow: 0 0 10px 1px hsl(193, 100%, 50%);
+  }
+
+  .noEmployeeMessage {
+    color: hsl(0, 100%, 58%);
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+  }
