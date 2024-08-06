@@ -11,6 +11,7 @@ function AllEmployeeView({initialEmployees}) {
 
     return (
         <>
+            
             {employees.length === 0 ? (
                 <p className={AllEmployeeViewCSS['noEmployeeMessage']}>No Employees</p>
             ) : (
@@ -19,12 +20,13 @@ function AllEmployeeView({initialEmployees}) {
                     <img className={AllEmployeeViewCSS['profile']} src={employee.profile}></img>
                     <h1 className={AllEmployeeViewCSS['name']}>{employee.name}</h1>
                     <p className={AllEmployeeViewCSS['info']}>{employee.description}</p>
-    
+                    
                     <Link to="/SingleEmployeeView"><button className={AllEmployeeViewCSS['viewButton']}>view</button></Link>
                     <button className={AllEmployeeViewCSS['deleteButton']} onClick={() => deleteEmployee(employee.id)}>delete</button>
                 </div>
                ))
             )}
+            <Link to="/AddEmployee"><button className={AllEmployeeViewCSS['AddEmployee']}>Add Employee</button></Link>
             
             
            
