@@ -2,12 +2,10 @@
 import './App.css'
 import { HashRouter as Router, Routes, Route } from 'react-router-dom'
 import Home from './pages/home'
-import HomeCSS from '../src/styles/home.module.css'
 import SingleEmployeeView from './pages/SingleEmployeeView'
-import SingleEmployeeViewCSS from '../src/styles/SingleEmployeeView.module.css'
 import AllEmployeeView from './pages/AllEmployeeView'
-import AllEmployeeViewCSS from '../src/styles/AllEmployeeView.module.css'
 import AddEmployee from './pages/AddEmployee'
+import AllTasksView from './styles/AllTasksView'
 
 
 function App() {
@@ -37,6 +35,7 @@ const initialEmployees = [
         <Route path="/AllEmployeeView" element={<AllEmployeeView initialEmployees={initialEmployees}/>}/>
         <Route path="/AddEmployee" element={<AddEmployee/>}/>
         <Route path="/SingleEmployeeView" element={<SingleEmployeeView employee={employeeData}/>}/>
+        <Route path="/AllTasksView" element={<AllTasksView/>}/>
       </Routes>
     </Router>
     </>

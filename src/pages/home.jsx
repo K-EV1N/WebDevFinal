@@ -6,7 +6,7 @@ function Home() {
     return (
         <div className={HomeCSS['buttonContainer']}>
             <Link to="/AllEmployeeView"><button>Employees</button></Link>
-            <Link to="/"><button>Tasks</button></Link>
+            <Link to="/AllTasksView"><button>Tasks</button></Link>
         </div>
         
     )
