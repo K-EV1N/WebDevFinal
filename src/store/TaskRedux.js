@@ -11,11 +11,11 @@ export function TaskReducer(state = initialState, action) {
 
 import axios from "axios";
 
-const PATH = "https://jsonplaceholder.typicode.com";
+const PATH = "http://localhost:5001/api/tasks";
 
 export const fetchTasks = () => async (dispatch) => {
     try {
-        let result = await axios.get(`${PATH}/todos`);
+        let result = await axios.get(`${PATH}`);
         dispatch({type: 'tasks/tasksLoaded', payload: result.data});
     } catch(error) {
         console.error(error);

@@ -10,12 +10,12 @@ export function EmployeeReducer(state = initialState, action) {
 };
 
 import axios from "axios";
-const PATH = 'https://jsonplaceholder.typicode.com';
+const PATH = 'http://localhost:5001/api/employees';
 
 
 export const fetchEmployees = () => async (dispatch) => {
     try {
-        let result = await axios.get(`${PATH}/users`);
+        let result = await axios.get(`${PATH}`);
         dispatch({type: 'employees/employeesLoaded', payload: result.data});
     } catch(error) {
         console.error(error);
