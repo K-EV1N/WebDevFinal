@@ -1,21 +1,25 @@
-    import React, {useState} from 'react';
-    import { Link } from 'react-router-dom';
+    import React, {useState, useEffect} from 'react';
+    import { useParams, Link } from 'react-router-dom';
     import SingleEmployeeViewCSS from '../styles/SingleEmployeeView.module.css'
 
-    function SingleEmployeeView({employee}) {
-        // const [employee, setEmployee] = useState({
-        //     firstName: '',
-        //     lastName: '',
-        //     department: '',
-        //     description: '',
-        //     priorityLevel: '',
-        //     completionLevel: '',
-        //     tasks: ["Task 1", "Task 2"]
-        // });
-
-        const [tasks, setTasks] = useState(employee.tasks || []);
+    function SingleEmployeeView({employees}) {
+        const { id } = useParams();
+        const [employee, setEmployee] = useState(null);
+        const [tasks, setTasks] = useState([]);
         const [newTask, setNewTask] = useState("");
 
+    useEffect(() => {
+        console.log("SingleEmployeeView useEffect, id:", id, "employees:", employees);
+        const employeeId = parseInt(id);
+        const foundEmployee = employees.find(emp => emp.id === employeeId);
+        if(foundEmployee) {
+            console.log("Found employee:", foundEmployee);
+            setEmployee(foundEmployee);
+            setTasks(foundEmployee.tasks || []);
+        } else {
+            console.log("Employee not found");
+        }
+    }, [id, employees]);
 
         function handleInputChange(event) {
             setNewTask(event.target.value);
@@ -42,21 +46,25 @@
             }
         }
 
+        if(!employee) {
+            return <p>Loading...</p>;
+        }
+
 
         return (
             <>
                 <div className={SingleEmployeeViewCSS['box']}>
-                    <h1>{employee.firstName} </h1>
-                    <h1>{employee.lastName}</h1>
+                    <h1>{employee.name}</h1>
+                    <p>{employee.description}</p>
 
-                        <input 
-                            className={SingleEmployeeViewCSS['input']} 
-                            type="text" 
-                            placeholder="Enter a task" 
-                            value={newTask} 
-                            onChange={handleInputChange} 
-                            onKeyDown={handleKeyPress}>
-                        </input>
+                    <input 
+                        className={SingleEmployeeViewCSS['input']} 
+                        type="text" 
+                        placeholder="Enter a task" 
+                        value={newTask} 
+                        onChange={handleInputChange} 
+                        onKeyDown={handleKeyPress}>
+                    </input>
 
 
                     <button className={SingleEmployeeViewCSS['addButton']} onClick={addTask}>Add Task</button>
@@ -72,7 +80,7 @@
                                 <span className={SingleEmployeeViewCSS['text']}>{task}</span>
                                 <div className={SingleEmployeeViewCSS['buttonContainer']}>
                                     <button className={SingleEmployeeViewCSS['viewButton']}>View</button>
-                                    <button className={SingleEmployeeViewCSS['deleteButton']} onClick={() => deleteTask(index)}>Delete</button>
+                                    <Link to={`/SingleEmployeeView/${employee.id}`}></Link><button className={SingleEmployeeViewCSS['deleteButton']} onClick={() => deleteTask(index)}>Delete</button>
                                 </div>
                             </li>
                         )}

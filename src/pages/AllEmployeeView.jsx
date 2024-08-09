@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import AllEmployeeViewCSS from '../styles/AllEmployeeView.module.css'
 
 function AllEmployeeView({initialEmployees}) {
+    console.log("AllEmployeeView rendered with:", initialEmployees);
     const [employees, setEmployees] = useState(initialEmployees);
 
     const deleteEmployee = (id) => {
@@ -17,19 +18,18 @@ function AllEmployeeView({initialEmployees}) {
             ) : (
                 employees.map(employee => (
                     <div key={employee.id} className={AllEmployeeViewCSS['box']}>
-                    <img className={AllEmployeeViewCSS['profile']} src={employee.profile}></img>
+                    <img className={AllEmployeeViewCSS['profile']} src={employee.profile} alt={employee.name}></img>
                     <h1 className={AllEmployeeViewCSS['name']}>{employee.name}</h1>
                     <p className={AllEmployeeViewCSS['info']}>{employee.description}</p>
                     
-                    <Link to="/SingleEmployeeView"><button className={AllEmployeeViewCSS['viewButton']}>View</button></Link>
+                    <Link to={`/SingleEmployeeView/${employee.id}`}><button className={AllEmployeeViewCSS['viewButton']}>View</button></Link>
                     <button className={AllEmployeeViewCSS['deleteButton']} onClick={() => deleteEmployee(employee.id)}>Delete</button>
                 </div>
                ))
             )}
             <Link to="/AddEmployee"><button className={AllEmployeeViewCSS['AddEmployee']}>Add Employee</button></Link>
+            <Link to="/"><button className={AllEmployeeViewCSS['backButton']}>Back</button></Link>
             
-            
-           
         </>
     )
 }

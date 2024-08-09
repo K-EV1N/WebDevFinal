@@ -10,7 +10,6 @@ function AddEmployee() {
                 <input className={AddEmployeeCSS['lastName']} placeholder='Last Name'></input>
                 <input className={AddEmployeeCSS['department']} placeholder='Department'></input>
                 <button className={AddEmployeeCSS['addEmployee']} >Add Employee</button>
-
             </div>
 
         </>
