@@ -13,7 +13,8 @@ function AllEmployeesContainer() {
 
     return (
         <AllEmployeeView employees={employees}/>
-    )
+    );
 }
 
 export default AllEmployeesContainer;
+
