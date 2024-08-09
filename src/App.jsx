@@ -22,11 +22,11 @@ function App() {
 //     tasks: ["Go to work", "Train", "Fight"]
 // };
 
-const employeeData = [
-  { id: 1, name: 'Eren Yager', description: 'Leader', profile: '../src/assets/eren.jpg', tasks: ["Go to work", "Train", "Fight"] },
-  { id: 2, name: 'Mikasa Ackerman', description: 'Soldier', profile: '../src/assets/eren.jpg', tasks: [] },
-  { id: 3, name: 'Armin Arlert', description: 'Strategist', profile: '../src/assets/eren.jpg', tasks: [] }
-];
+// const employeeData = [
+//   { id: 1, name: 'Eren Yager', description: 'Leader', profile: '../src/assets/eren.jpg', tasks: ["Go to work", "Train", "Fight"] },
+//   { id: 2, name: 'Mikasa Ackerman', description: 'Soldier', profile: '../src/assets/eren.jpg', tasks: [] },
+//   { id: 3, name: 'Armin Arlert', description: 'Strategist', profile: '../src/assets/eren.jpg', tasks: [] }
+// ];
 
 
   return (
@@ -34,10 +34,9 @@ const employeeData = [
       <Router>
       <Routes>
         <Route path="/" element={<Home/>}/> 
-        <Route path="/AllEmployeeView" element={<AllEmployeeView initialEmployees={employeeData}/>}/>
+        <Route path="/AllEmployeeView" element={<AllEmployeesContainer/>}/>
         <Route path="/AddEmployee" element={<AddEmployee/>}/>
         <Route path="/SingleEmployeeView/:id" element={<SingleEmployeeView employees={employeeData}/>}/>
-
         <Route path="/AllTasksView" element={<AllTasksView/>}/>
       </Routes>
     </Router>
@@ -48,3 +47,30 @@ const employeeData = [
 }
 
 export default App
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{/* <>
+      <Router>
+      <Routes>
+        <Route path="/" element={<Home/>}/> 
+        <Route path="/AllEmployeeView" element={<AllEmployeeView initialEmployees={employeeData}/>}/>
+        <Route path="/AddEmployee" element={<AddEmployee/>}/>
+        <Route path="/SingleEmployeeView/:id" element={<SingleEmployeeView employees={employeeData}/>}/>
+        <Route path="/AllTasksView" element={<AllTasksView/>}/>
+      </Routes>
+    </Router>
+    </> */}
