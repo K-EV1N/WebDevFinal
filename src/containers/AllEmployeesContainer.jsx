@@ -12,7 +12,7 @@ function AllEmployeesContainer() {
     }, [dispatch]);
 
     return (
-        <AllEmployeeView employees={employees}/>
+        <AllEmployeeView initialEmployees={employees}/>
     );
 }
 
