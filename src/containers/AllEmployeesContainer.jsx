@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import { fetchEmployees } from '../store/EmployeeRedux';
-import AllEmployeeView from '../pages/AllEmployeeView';
+import AllEmployeesView from '../pages/AllEmployeesView';
 
 function AllEmployeesContainer() {
     const employees = useSelector((state) => state.employees);
@@ -12,7 +12,7 @@ function AllEmployeesContainer() {
     }, [dispatch]);
 
     return (
-        <AllEmployeeView initialEmployees={employees}/>
+        <AllEmployeesView initialEmployees={employees}/>
     );
 }
 

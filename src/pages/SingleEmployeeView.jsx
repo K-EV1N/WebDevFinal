@@ -1,26 +1,23 @@
     import React, {useState, useEffect} from 'react';
     import { useParams, Link } from 'react-router-dom';
     import SingleEmployeeViewCSS from '../styles/SingleEmployeeView.module.css'
-import { current } from '@reduxjs/toolkit';
+    import { useSelector } from 'react-redux';
 
-    function SingleEmployeeView({employees}) {
+    function SingleEmployeeView() {
         const { id } = useParams();
+        const employees = useSelector(state => state.employees); 
         const [employee, setEmployee] = useState(null);
         const [tasks, setTasks] = useState([]);
         const [newTask, setNewTask] = useState("");
         
 
     useEffect(() => {
-        console.log("SingleEmployeeView useEffect, id:", id, "employees:", employees);
         const employeeId = parseInt(id);
         const foundEmployee = employees.find(emp => emp.id === employeeId);
         if(foundEmployee) {
-            console.log("Found employee:", foundEmployee);
             setEmployee(foundEmployee);
             setTasks(foundEmployee.tasks || []);
-        } else {
-            console.log("Employee not found");
-        }
+        } 
     }, [id, employees]);
 
         function handleInputChange(event) {
@@ -69,8 +66,9 @@ import { current } from '@reduxjs/toolkit';
         return (
             <>
                 <div className={SingleEmployeeViewCSS['box']}>
-                    <h1>{employee.name}</h1>
-                    <p>{employee.description}</p>
+                    <h1>{employee.firstname}</h1>
+                    <h1>{employee.lastname}</h1>
+                    <p>{employee.department}</p>
 
                     <input 
                         className={SingleEmployeeViewCSS['input']} 
@@ -83,7 +81,7 @@ import { current } from '@reduxjs/toolkit';
 
 
                     <button className={SingleEmployeeViewCSS['addButton']} onClick={addTask}>Add Task</button>
-                    <Link to="/AllEmployeeView"><button className={SingleEmployeeViewCSS['backButton']}>Back</button></Link>
+                    <Link to="/AllEmployeesView"><button className={SingleEmployeeViewCSS['backButton']}>Back</button></Link>
 
                     {tasks.length === 0 ? (
                         <p className={SingleEmployeeViewCSS['noTasksMessage']}>No tasks assigned to this employee.</p>
@@ -92,9 +90,9 @@ import { current } from '@reduxjs/toolkit';
                     <ol className={SingleEmployeeViewCSS['taskList']}>
                         {tasks.map((task, index) => 
                             <li key={index}>
-                                <span className={SingleEmployeeViewCSS['text']}>{task}</span>
+                                <span className={SingleEmployeeViewCSS['text']}>{task.description}</span>
                                 <div className={SingleEmployeeViewCSS['buttonContainer']}>
-                                    <button className={SingleEmployeeViewCSS['viewButton']} onClick={() => openModal(task)}>View</button>
+                                    <button className={SingleEmployeeViewCSS['viewButton']} onClick={() => openModal(task.description)}>View</button>
                                     <Link to={`/SingleEmployeeView/${employee.id}`}></Link><button className={SingleEmployeeViewCSS['deleteButton']} onClick={() => deleteTask(index)}>Delete</button>
                                 </div>
                             </li>

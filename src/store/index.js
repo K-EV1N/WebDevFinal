@@ -1,11 +1,11 @@
 import {configureStore} from '@reduxjs/toolkit'
-import { EmployeeReducer } from './EmployeeRedux'
-import { TaskReducer } from './TaskRedux'
+import { EmployeeReducer } from '../store/EmployeeRedux'
+import { TasksReducer } from '../store/TaskRedux'
 
 const store = configureStore({
     reducer: {
         employees: EmployeeReducer,
-        tasks: TaskReducer,
+        tasks: TasksReducer,
     }
 })
 
