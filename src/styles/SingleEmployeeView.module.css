@@ -1,7 +1,22 @@
-  h1 {
+  /* h1 {
     font-size: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+  } */
+
+  .firstName, .lastName {
+    font-size: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
   }
   
+  .department {
+    font-size: 15px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    color: hsl(0, 0%, 0%);
+    
+  }
   
   .addButton {
     background-color: hsl(125, 47%, 54%);
@@ -154,6 +169,9 @@
   }
 
   .noTasksMessage {
+    margin-top: 30px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 13px;
     font-weight: bold;
   }
 
@@ -166,6 +184,11 @@
     height: 100%;
     overflow: auto;
     background-color: rgba(0,0,0,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  
 }
 
 .modalContent {
@@ -174,6 +197,69 @@
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
+    height: 350px;
     max-width: 500px;
+    border-radius: 10px;
 }
 
+.taskDetails {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin: auto;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+.currentTask {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin-top: 20px;
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.closeModal {
+    background-color: hsl(10, 90%, 50%);
+    height: 25px;
+    width: 75px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+    flex-shrink: 0;
+    transition: background-color 0.6s ease, transform 0.6s ease;
+}
+
+.closeModal:hover {
+  background-color: hsl(10, 100%, 55%);
+  transform: scale(1.075);
+  box-shadow: 0 0 10px 1px hsl(0, 100%, 50%);
+}
+
+.assignment {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin-top: 20px;
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.priority {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin-top: 20px;
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.status {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin-top: 20px;
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 60px;
+}

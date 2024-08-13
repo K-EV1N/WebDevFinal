@@ -38,21 +38,22 @@ function AllTasksView() {
         }
     };
 
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [currentTask, setCurrentTask] = useState(null);
+
+    const handleViewClick = (task) => {
+        setCurrentTask(task);
+        setIsModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setIsModalOpen(false);
+        setCurrentTask(null);
+    };
+
     return (
         <div className={AllTasksViewCSS['container']}>
             <h1>All Tasks</h1>
-            {tasks.length === 0 ? (
-                <p className={AllTasksViewCSS['noTasksMessage']}>No tasks available</p>
-            ) : (
-                <ul className={AllTasksViewCSS['taskList']}>
-                    {tasks.map((task) => (
-                        <li key={task.id}>
-                            {task.description}
-                            <button onClick={() => handleDelete(task.id)}>Delete</button>
-                        </li>
-                    ))}
-                </ul>
-            )}
 
             <div className={AllTasksViewCSS['addTaskContainer']}>
                 <input
@@ -65,7 +66,37 @@ function AllTasksView() {
                 <button onClick={handleAddTask} className={AllTasksViewCSS['addButton']}>Add Task</button>
                 {errors && <p className={AllTasksViewCSS['error']}>{errors}</p>}
             </div>
+
+            {tasks.length === 0 ? (
+                <p className={AllTasksViewCSS['noTasksMessage']}>No tasks available</p>
+            ) : (
+                <ul className={AllTasksViewCSS['taskList']}>
+                    {tasks.map((task) => (  
+                        <li className={AllTasksViewCSS['taskName']} key={task.id}>
+                            {task.description}
+                            <div className={AllTasksViewCSS['priority']}>Priority: {task.priority}</div>
+                            <div className={AllTasksViewCSS['status']}>Status: {task.isComplete ? 'Complete' : 'Not Complete'}</div>
+                            <button className={AllTasksViewCSS['viewButton']} onClick={() => handleViewClick(task)}>View</button>
+                            <button className={AllTasksViewCSS['deleteButton']} onClick={() => handleDelete(task.id)}>Delete</button>
+                        </li>
+                    ))}
+                </ul>
+            )}
+
             <Link to="/"><button className={AllTasksViewCSS['backButton']}>Back</button></Link>
+
+            {isModalOpen && currentTask && (
+                <div className={AllTasksViewCSS['modalOverlay']}>
+                    <div className={AllTasksViewCSS['modal']}>
+                        <h2>Task Details</h2>
+                        <p><strong>Description:</strong> {currentTask.description}</p>
+                        <p><strong>Assigned To:</strong> {currentTask.employee ? `${currentTask.employee.firstname} ${currentTask.employee.lastname}` : 'Unassigned'} </p>
+                        <p><strong>Priority:</strong> {currentTask.priority}</p>
+                        <p><strong>Status:</strong> {currentTask.isComplete ? 'Complete' : 'Not Complete'}</p>
+                        <button onClick={closeModal} className={AllTasksViewCSS['closeButton']}>Close</button>
+                    </div>
+                </div>
+            )}
         </div>
     );
 }

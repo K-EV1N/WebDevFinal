@@ -3,6 +3,7 @@
     import SingleEmployeeViewCSS from '../styles/SingleEmployeeView.module.css'
     import { useSelector } from 'react-redux';
 
+
     function SingleEmployeeView() {
         const { id } = useParams();
         const employees = useSelector(state => state.employees); 
@@ -46,7 +47,7 @@
         }
 
         const[modal, setModal] = useState(false);
-        const [currentTask, setCurrentTask] = useState("");
+        const [currentTask, setCurrentTask] = useState(null);
 
         const openModal = (task) => {
             setCurrentTask(task);
@@ -55,7 +56,7 @@
 
         const closeModal = () => {
             setModal(false);
-            setCurrentTask("");
+            setCurrentTask(null);
         }
 
         if(!employee) {
@@ -66,9 +67,9 @@
         return (
             <>
                 <div className={SingleEmployeeViewCSS['box']}>
-                    <h1>{employee.firstname}</h1>
-                    <h1>{employee.lastname}</h1>
-                    <p>{employee.department}</p>
+                    <h1 className={SingleEmployeeViewCSS['firstName']}>{employee.firstname}</h1>
+                    <h1 className={SingleEmployeeViewCSS['lastName']}>{employee.lastname}</h1>
+                    <p className={SingleEmployeeViewCSS['department']}>{employee.department}</p>
 
                     <input 
                         className={SingleEmployeeViewCSS['input']} 
@@ -92,7 +93,7 @@
                             <li key={index}>
                                 <span className={SingleEmployeeViewCSS['text']}>{task.description}</span>
                                 <div className={SingleEmployeeViewCSS['buttonContainer']}>
-                                    <button className={SingleEmployeeViewCSS['viewButton']} onClick={() => openModal(task.description)}>View</button>
+                                    <button className={SingleEmployeeViewCSS['viewButton']} onClick={() => openModal(task)}>View</button>
                                     <Link to={`/SingleEmployeeView/${employee.id}`}></Link><button className={SingleEmployeeViewCSS['deleteButton']} onClick={() => deleteTask(index)}>Delete</button>
                                 </div>
                             </li>
@@ -100,12 +101,15 @@
                     </ol>
                     )}
                 </div>
-                {modal && (
+                {modal && currentTask && (
                     <div className={SingleEmployeeViewCSS['modal']}>
                         <div className={SingleEmployeeViewCSS['modalContent']}>
-                            <h2>Task Details</h2>
-                            <p>{currentTask}</p>
-                            <button onClick={closeModal}>Close</button>
+                            <h2 className={SingleEmployeeViewCSS['taskDetails']}>Task Details</h2>
+                            <p className={SingleEmployeeViewCSS['currentTask']}>Task: <b>{currentTask.description}</b></p>
+                            <p className={SingleEmployeeViewCSS['assignment']}>Assigned to: <b>{employee.firstname} {employee.lastname}</b></p>
+                            <p className={SingleEmployeeViewCSS['priority']}>Priority: <b>{currentTask.priority}</b></p>
+                            <p className={SingleEmployeeViewCSS['status']}>Status: <b>{currentTask.isComplete ? 'Complete' : 'Incomplete'}</b></p>
+                            <button className={SingleEmployeeViewCSS['closeModal']} onClick={closeModal}>Close</button>
 
                         </div>
                     </div>
