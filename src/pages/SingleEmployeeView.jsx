@@ -28,7 +28,7 @@
         // Add Task
         function addTask() {
             if(newTask.trim() !== "") {
-                setTasks(t => [...t, newTask]);
+                setTasks(t => [...t, {description: newTask.trim() }]);
                 setNewTask("");
             }   
             
@@ -107,8 +107,19 @@
                             <h2 className={SingleEmployeeViewCSS['taskDetails']}>Task Details</h2>
                             <p className={SingleEmployeeViewCSS['currentTask']}>Task: <b>{currentTask.description}</b></p>
                             <p className={SingleEmployeeViewCSS['assignment']}>Assigned to: <b>{employee.firstname} {employee.lastname}</b></p>
-                            <p className={SingleEmployeeViewCSS['priority']}>Priority: <b>{currentTask.priority}</b></p>
-                            <p className={SingleEmployeeViewCSS['status']}>Status: <b>{currentTask.isComplete ? 'Complete' : 'Incomplete'}</b></p>
+                            <p className={SingleEmployeeViewCSS['priority']}>
+                                Priority: <span 
+                                    style={{
+                                        color: 
+                                            currentTask.priority === 'Low' ? 'green' :
+                                            currentTask.priority === 'Medium' ? 'yellow' :
+                                            currentTask.priority === 'High' ? 'red' : 'black'
+                                    }}
+                                >
+                                    <b>{currentTask.priority}</b>
+                                </span>
+                            </p>
+                            <p className={SingleEmployeeViewCSS['status']}>Status: <span style={{color: currentTask.isComplete ? 'green' : 'red'}}><b>{currentTask.isComplete ? 'Complete' : 'Incomplete'}</b></span></p>
                             <button className={SingleEmployeeViewCSS['closeModal']} onClick={closeModal}>Close</button>
 
                         </div>

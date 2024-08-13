@@ -74,8 +74,8 @@ function AllTasksView() {
                     {tasks.map((task) => (  
                         <li className={AllTasksViewCSS['taskName']} key={task.id}>
                             {task.description}
-                            <div className={AllTasksViewCSS['priority']}>Priority: {task.priority}</div>
-                            <div className={AllTasksViewCSS['status']}>Status: {task.isComplete ? 'Complete' : 'Not Complete'}</div>
+                            <div className={AllTasksViewCSS['priority']}>Priority: <span style={{color: task.priority === 'Low' ? 'green' : task.priority === 'Medium' ? 'orange' : task.priority === 'High' ? 'red' : 'black'}}>{task.priority}</span></div>
+                            <div className={AllTasksViewCSS['status']}>Status: <span style={{color: task.isComplete ? 'green' : 'red'}}>{task.isComplete ? 'Complete' : 'Not Complete'}</span></div>
                             <button className={AllTasksViewCSS['viewButton']} onClick={() => handleViewClick(task)}>View</button>
                             <button className={AllTasksViewCSS['deleteButton']} onClick={() => handleDelete(task.id)}>Delete</button>
                         </li>
@@ -88,12 +88,21 @@ function AllTasksView() {
             {isModalOpen && currentTask && (
                 <div className={AllTasksViewCSS['modalOverlay']}>
                     <div className={AllTasksViewCSS['modal']}>
-                        <h2>Task Details</h2>
-                        <p><strong>Description:</strong> {currentTask.description}</p>
-                        <p><strong>Assigned To:</strong> {currentTask.employee ? `${currentTask.employee.firstname} ${currentTask.employee.lastname}` : 'Unassigned'} </p>
-                        <p><strong>Priority:</strong> {currentTask.priority}</p>
-                        <p><strong>Status:</strong> {currentTask.isComplete ? 'Complete' : 'Not Complete'}</p>
-                        <button onClick={closeModal} className={AllTasksViewCSS['closeButton']}>Close</button>
+                        <h2 className={AllTasksViewCSS['modalTaskDetail']}>Task Details</h2>
+                        <p className={AllTasksViewCSS['modalDescription']}>Description: {currentTask.description}</p>
+                        <p className={AllTasksViewCSS['modalAssign']}>Assigned To: <b>{currentTask.employee ? `${currentTask.employee.firstname} ${currentTask.employee.lastname}` : 'Unassigned'}</b></p>
+                        <p className={AllTasksViewCSS['modalPriority']}>Priority: <b>
+                            <span style={{ 
+                                color: currentTask.priority === 'Low' ? 'green' : 
+                                    currentTask.priority === 'Medium' ? 'orange' : 
+                                    currentTask.priority === 'High' ? 'red' : 'black' 
+                            }}>
+                                {currentTask.priority}
+                            </span>
+                        </b>
+                        </p>
+                        <p className={AllTasksViewCSS['modalStatus']}>Status: <span style={{color: currentTask.isComplete ? 'green' : 'red'}}><b>{currentTask.isComplete ? 'Complete' : 'Not Complete'}</b></span></p>
+                        <button className={AllTasksViewCSS['closeButton']} onClick={closeModal}>Close</button>
                     </div>
                 </div>
             )}
