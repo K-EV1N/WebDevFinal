@@ -81,7 +81,7 @@
                     </input>
 
 
-                    <button className={SingleEmployeeViewCSS['addButton']} onClick={addTask}>Add Task</button>
+                    <Link to="/NewTaskView"><button className={SingleEmployeeViewCSS['addButton']} onClick={addTask}>Add Task</button></Link>
                     <Link to="/AllEmployeesView"><button className={SingleEmployeeViewCSS['backButton']}>Back</button></Link>
 
                     {tasks.length === 0 ? (
@@ -112,7 +112,7 @@
                                     style={{
                                         color: 
                                             currentTask.priority === 'Low' ? 'green' :
-                                            currentTask.priority === 'Medium' ? 'yellow' :
+                                            currentTask.priority === 'Medium' ? 'orange' :
                                             currentTask.priority === 'High' ? 'red' : 'black'
                                     }}
                                 >

@@ -44,5 +44,6 @@ html, body {
     background-color: hsl(202, 100%, 48%);
     transform: scale(1.3);
     box-shadow: 0 0 50px 2px hsl(201, 100%, 50%);
+    border: 1px solid;
 }
 

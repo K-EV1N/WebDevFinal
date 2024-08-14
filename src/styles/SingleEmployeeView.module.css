@@ -33,9 +33,10 @@
   }
   
   .addButton:hover {
-    background-color: hsl(125, 47%, 44%);
+    background-color: hsl(125, 77%, 50%);
     transform: scale(1.075);
-    box-shadow: 0 0 20px 1px hsl(131, 100%, 50%);
+    box-shadow: 0 0 25px 5px hsl(125, 49%, 55%);
+    border: 1px solid;
   }
 
   .backButton {
@@ -59,6 +60,7 @@
     background-color: hsl(17, 100%, 53%);
     transform: scale(1.075);
     box-shadow: 0 0 20px 1px hsl(28, 100%, 50%);
+    border: 1px solid;
   }
   
   .deleteButton {
@@ -81,6 +83,7 @@
     background-color: hsl(10, 100%, 55%);
     transform: scale(1.075);
     box-shadow: 0 0 10px 1px hsl(0, 100%, 50%);
+    border: 1px solid;
   }
 
   .viewButton {
@@ -103,6 +106,7 @@
   .viewButton:hover {
     transform: scale(1.075);
     box-shadow: 0 0 10px 1px hsl(193, 100%, 50%);
+    border: 1px solid;
   }
   
   .input {

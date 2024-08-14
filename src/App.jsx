@@ -9,6 +9,8 @@ import AddEmployee from './pages/AddEmployee'
 import AllEmployeesContainer from './containers/AllEmployeesContainer'
 import { fetchEmployees } from './store/EmployeeRedux';
 import AllTasksView from './pages/AllTasksView';
+import NewTaskView from './pages/NewTaskView';
+import NewTaskContainer from './containers/NewTaskContainer';
 
 
 function App() {
@@ -27,6 +29,7 @@ function App() {
         <Route path="/AddEmployee" element={<AddEmployee/>}/>
         <Route path="/SingleEmployeeView/:id" element={<SingleEmployeeView/>}/>
         <Route path="/AllTasksView" element={<AllTasksView/>}/>
+        <Route path="/NewTaskView" element={<NewTaskContainer/>}/>
       </Routes>
     </Router>
     </>
