@@ -56,14 +56,7 @@ function AllTasksView() {
             <h1>All Tasks</h1>
 
             <div className={AllTasksViewCSS['addTaskContainer']}>
-                <input
-                    type="text"
-                    value={newTask}
-                    onChange={handleInputChange}
-                    placeholder="Enter new task"
-                    className={AllTasksViewCSS['taskInput']}
-                />
-                <button onClick={handleAddTask} className={AllTasksViewCSS['addButton']}>Add Task</button>
+                <Link to="/NewTaskView"><button onClick={handleAddTask} className={AllTasksViewCSS['addButton']}>Add Task</button></Link>
                 {errors && <p className={AllTasksViewCSS['error']}>{errors}</p>}
             </div>
 
@@ -89,7 +82,7 @@ function AllTasksView() {
                 <div className={AllTasksViewCSS['modalOverlay']}>
                     <div className={AllTasksViewCSS['modal']}>
                         <h2 className={AllTasksViewCSS['modalTaskDetail']}>Task Details</h2>
-                        <p className={AllTasksViewCSS['modalDescription']}>Description: {currentTask.description}</p>
+                        <p className={AllTasksViewCSS['modalDescription']}>Description: <b>{currentTask.description}</b></p>
                         <p className={AllTasksViewCSS['modalAssign']}>Assigned To: <b>{currentTask.employee ? `${currentTask.employee.firstname} ${currentTask.employee.lastname}` : 'Unassigned'}</b></p>
                         <p className={AllTasksViewCSS['modalPriority']}>Priority: <b>
                             <span style={{ 
