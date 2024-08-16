@@ -11,6 +11,7 @@ import { fetchEmployees } from './store/EmployeeRedux';
 import AllTasksView from './pages/AllTasksView';
 import NewTaskView from './pages/NewTaskView';
 import NewTaskContainer from './containers/NewTaskContainer';
+import EditTaskContainer from './containers/EditTaskContainer';
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
         <Route path="/SingleEmployeeView/:id" element={<SingleEmployeeView/>}/>
         <Route path="/AllTasksView" element={<AllTasksView/>}/>
         <Route path="/NewTaskView" element={<NewTaskContainer/>}/>
+        <Route path="/EditTaskView/:taskId" element={<EditTaskContainer/>}/>
       </Routes>
     </Router>
     </>

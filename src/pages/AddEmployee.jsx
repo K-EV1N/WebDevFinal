@@ -22,6 +22,7 @@ function AddEmployee() {
             setFirstName('');
             setLastName('');
             setDepartment('');
+            alert('Employee added!')
         } else {
             alert('Please fill out all the fields.')
         }

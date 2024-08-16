@@ -45,11 +45,6 @@
             dispatch(deleteTask(taskId));
         };
 
-        function handleKeyPress(event) {
-            if(event.key === 'Enter') {
-                addTask();
-            }
-        }
 
         const[modal, setModal] = useState(false);
         const [currentTask, setCurrentTask] = useState(null);
@@ -65,7 +60,7 @@
         }
 
         if(!employee) {
-            return <p>No Employees assigned for this task</p>;
+            return <p>No Employees assigned to this task</p>;
         }
 
 
@@ -74,7 +69,7 @@
                 <div className={SingleEmployeeViewCSS['box']}>
                     <h1 className={SingleEmployeeViewCSS['firstName']}>{employee.firstname}</h1>
                     <h1 className={SingleEmployeeViewCSS['lastName']}>{employee.lastname}</h1>
-                    <p className={SingleEmployeeViewCSS['department']}>{employee.department}</p>
+                    <p className={SingleEmployeeViewCSS['department']}>{employee.department || 'N/A'}</p>
 
 
 

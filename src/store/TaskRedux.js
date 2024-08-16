@@ -43,7 +43,6 @@ export const deleteTask = taskId => async dispatch => {
     //delete succesful so change state with dispatch
     dispatch({type: 'tasks/taskDeleted', payload: taskId});
 
-    dispatch(fetchEmployees());
   } catch(err) {
     console.error(err);
   }
