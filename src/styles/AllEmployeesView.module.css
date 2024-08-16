@@ -1,3 +1,28 @@
+.outerContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    height: 100vh;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+
+.employeeContainer {
+  display: column;
+  margin-top: 80px;
+  justify-items: center;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
 
 .box {
     border: 1px solid hsl(0, 0%, 54%);

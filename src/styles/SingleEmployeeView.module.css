@@ -109,14 +109,6 @@
     border: 1px solid;
   }
   
-  .input {
-    padding-left: 10px;
-    height: 25px;
-    width: 200px;
-    border-radius: 5px;
-    border: none;
-    background-color: #f0f0f0;
-  }
   
   .box {
     display: inline-block;
