@@ -17,7 +17,8 @@ function NewTaskView({handleSubmit, employees}) {
     );
 
     let selectEmployee = (
-        <label className={NewTaskViewCSS['assignEmployee']}> Assign Employee: <select className={NewTaskViewCSS['select']} name="employeeId" defaultValue="null">
+        <label className={NewTaskViewCSS['assignEmployee']}> Assign Employee: 
+        <select className={NewTaskViewCSS['select']} name="employeeId" defaultValue="null">
                 <option value="null">None</option>
                 {employees.map(emp => {
                     let name = emp.firstname + " " + emp.lastname;
@@ -32,7 +33,7 @@ function NewTaskView({handleSubmit, employees}) {
             <h2 className={NewTaskViewCSS['newTask']}>Add a New Task</h2>
             <form onSubmit={handleSubmit} id="newtaskform">
                 <label className={NewTaskViewCSS['taskDescription']}>
-                    Description: <input className={NewTaskViewCSS['taskInput']} name="taskContent"/>
+                    Description:<input className={NewTaskViewCSS['taskInput']} name="taskContent" placeholder="Enter task name"/>
                 </label>
                 {selectPriority}
                 {selectEmployee}

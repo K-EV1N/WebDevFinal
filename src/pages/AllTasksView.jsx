@@ -96,6 +96,7 @@ function AllTasksView() {
                         </p>
                         <p className={AllTasksViewCSS['modalStatus']}>Status: <span style={{color: currentTask.isComplete ? 'green' : 'red'}}><b>{currentTask.isComplete ? 'Complete' : 'Not Complete'}</b></span></p>
                         <button className={AllTasksViewCSS['closeButton']} onClick={closeModal}>Close</button>
+                        <Link to={`/EditTaskView/${currentTask.id}`}><button className={AllTasksViewCSS['editButton']}>Edit</button></Link>
                     </div>
                 </div>
             )}
