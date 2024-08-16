@@ -1,25 +1,34 @@
     import React, {useState, useEffect} from 'react';
     import { useParams, Link } from 'react-router-dom';
+    import { useSelector, useDispatch } from 'react-redux';
+    import {deleteTask, fetchTasks} from '../store/TaskRedux'
     import SingleEmployeeViewCSS from '../styles/SingleEmployeeView.module.css'
-    import { useSelector } from 'react-redux';
+   
 
 
     function SingleEmployeeView() {
         const { id } = useParams();
-        const employees = useSelector(state => state.employees); 
+        const dispatch = useDispatch();
         const [employee, setEmployee] = useState(null);
+        const allTasks = useSelector(state => state.tasks);
         const [tasks, setTasks] = useState([]);
-        const [newTask, setNewTask] = useState("");
         
 
-    useEffect(() => {
-        const employeeId = parseInt(id);
-        const foundEmployee = employees.find(emp => emp.id === employeeId);
-        if(foundEmployee) {
-            setEmployee(foundEmployee);
-            setTasks(foundEmployee.tasks || []);
-        } 
-    }, [id, employees]);
+        useEffect(() => {
+            const fetchEmployeeData = async () => {
+                const employeeId = parseInt(id);
+                const response = await fetch(`http://localhost:5001/api/employees/${employeeId}`);
+                const data = await response.json();
+                setEmployee(data);
+            };
+            fetchEmployeeData();
+            dispatch(fetchTasks());
+        }, [id, dispatch]);
+
+        useEffect(() => {
+            const employeeTasks = allTasks.filter(task => task.employeeId === parseInt(id));
+            setTasks(employeeTasks);
+        }, [allTasks, id]);
 
     
         // Add Task
@@ -32,10 +41,9 @@
         }
 
         // Delete Task
-        function deleteTask(index) {
-            const updatedTasks = tasks.filter((_, i) => i !== index);
-            setTasks(updatedTasks);
-        }
+        const handleDeleteTask = (taskId) => {
+            dispatch(deleteTask(taskId));
+        };
 
         function handleKeyPress(event) {
             if(event.key === 'Enter') {
@@ -57,7 +65,7 @@
         }
 
         if(!employee) {
-            return <p>Loading...</p>;
+            return <p>No Employees assigned for this task</p>;
         }
 
 
@@ -83,7 +91,7 @@
                                 <span className={SingleEmployeeViewCSS['text']}>{task.description}</span>
                                 <div className={SingleEmployeeViewCSS['buttonContainer']}>
                                     <button className={SingleEmployeeViewCSS['viewButton']} onClick={() => openModal(task)}>View</button>
-                                    <Link to={`/SingleEmployeeView/${employee.id}`}></Link><button className={SingleEmployeeViewCSS['deleteButton']} onClick={() => deleteTask(index)}>Delete</button>
+                                    <Link to={`/SingleEmployeeView/${employee.id}`}></Link><button className={SingleEmployeeViewCSS['deleteButton']} onClick={() => handleDeleteTask(task.id)}>Delete</button>
                                 </div>
                             </li>
                         )}

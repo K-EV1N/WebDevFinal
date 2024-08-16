@@ -83,7 +83,7 @@ function AllTasksView() {
                     <div className={AllTasksViewCSS['modal']}>
                         <h2 className={AllTasksViewCSS['modalTaskDetail']}>Task Details</h2>
                         <p className={AllTasksViewCSS['modalDescription']}>Description: <b>{currentTask.description}</b></p>
-                        <p className={AllTasksViewCSS['modalAssign']}>Assigned To: <b>{currentTask.employee ? `${currentTask.employee.firstname} ${currentTask.employee.lastname}` : 'Unassigned'}</b></p>
+                        <p className={AllTasksViewCSS['modalAssign']}>Assigned To: <Link to={`/SingleEmployeeView/${currentTask.employeeId}`}><b>{currentTask.employee ? `${currentTask.employee.firstname} ${currentTask.employee.lastname}` : 'Unassigned'}</b></Link></p>
                         <p className={AllTasksViewCSS['modalPriority']}>Priority: <b>
                             <span style={{ 
                                 color: currentTask.priority === 'Low' ? 'green' : 
