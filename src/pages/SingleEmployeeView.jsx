@@ -21,10 +21,7 @@
         } 
     }, [id, employees]);
 
-        function handleInputChange(event) {
-            setNewTask(event.target.value);
-        }
-
+    
         // Add Task
         function addTask() {
             if(newTask.trim() !== "") {
@@ -71,14 +68,6 @@
                     <h1 className={SingleEmployeeViewCSS['lastName']}>{employee.lastname}</h1>
                     <p className={SingleEmployeeViewCSS['department']}>{employee.department}</p>
 
-                    <input 
-                        className={SingleEmployeeViewCSS['input']} 
-                        type="text" 
-                        placeholder="Enter a task" 
-                        value={newTask} 
-                        onChange={handleInputChange} 
-                        onKeyDown={handleKeyPress}>
-                    </input>
 
 
                     <Link to="/NewTaskView"><button className={SingleEmployeeViewCSS['addButton']} onClick={addTask}>Add Task</button></Link>
