@@ -20,6 +20,7 @@ export function TasksReducer(state = initialState, action) {
 
 //API calls go here
 import axios from "axios";
+import { fetchEmployees } from "./EmployeeRedux";
 //PATH (should be where your server is running)
 const PATH = "http://localhost:5001/api/tasks";
 
@@ -41,6 +42,8 @@ export const deleteTask = taskId => async dispatch => {
     await axios.delete(`${PATH}/${taskId}`);
     //delete succesful so change state with dispatch
     dispatch({type: 'tasks/taskDeleted', payload: taskId});
+
+    dispatch(fetchEmployees());
   } catch(err) {
     console.error(err);
   }
@@ -51,6 +54,11 @@ export const addTask = task => async (dispatch) => {
   try {
     let res = await axios.post(`${PATH}`, task);
     dispatch({type: 'tasks/taskCreated', payload: res.data});
+
+    if(res.data.employeeId) {
+      dispatch(fetchEmployees());
+    }
+
     return res.data;
   } catch(err) {
     console.error(err);
