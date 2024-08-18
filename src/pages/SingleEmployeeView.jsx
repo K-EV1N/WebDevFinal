@@ -35,7 +35,7 @@
         function addTask() {
             if(newTask.trim() !== "") {
                 setTasks(t => [...t, {description: newTask.trim() }]);
-                setNewTask("");
+                setTasks("");
             }   
             
         }
@@ -75,6 +75,7 @@
 
                     <Link to="/NewTaskView"><button className={SingleEmployeeViewCSS['addButton']} onClick={addTask}>Add Task</button></Link>
                     <Link to="/AllEmployeesView"><button className={SingleEmployeeViewCSS['backButton']}>Back</button></Link>
+                    <Link to={`/EditEmployeeView/${employee.id}`}><button className={SingleEmployeeViewCSS['editButton']}>Edit</button></Link>
 
                     {tasks.length === 0 ? (
                         <p className={SingleEmployeeViewCSS['noTasksMessage']}>No tasks assigned to this employee.</p>

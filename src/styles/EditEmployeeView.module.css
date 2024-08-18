@@ -1,0 +1,82 @@
+.container {
+    width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.editEmployee {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    color: #333;
+    font-size: 28px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 45px;
+}
+
+.employeeName,
+.employeeDepartment {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+    color: #444;
+    display: block;
+    margin: 20px 0;
+}
+
+.input {
+    height: 30px;
+    width: 250px;
+    margin-left: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.saveEmployeeButton {
+    background-color: hsl(125, 47%, 54%);
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: block;
+    margin: 30px auto;
+}
+
+.saveEmployeeButton:hover {
+    background-color: hsl(125, 77%, 50%);
+    transform: scale(1.075);
+    box-shadow: 0 0 15px 5px hsl(125, 49%, 55%);
+    border: 1px solid;
+}
+
+.backButton {
+    background-color: hsl(17, 100%, 63%);
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin: 20px auto;
+    display: inline-block;
+}
+
+.backButton:hover {
+    background-color: hsl(17, 100%, 64%);
+    transform: scale(1.075);
+    box-shadow: 0 0 20px 2px hsl(17, 100%, 60%);
+    border: 1px solid;
+}
