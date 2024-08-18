@@ -1,3 +1,3 @@
-Web Dev Final
+Final Project for CSCI 39548 Web Dev ~ Summer 2024
 
-Backend used: final-backend
+Backend ~ "final-backend"
