@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { deleteEmployee } from '../store/EmployeeRedux';
 import AllEmployeesViewCSS from '../styles/AllEmployeesView.module.css'
 
+
 function AllEmployeesView() {
     const dispatch = useDispatch();
     const employees = useSelector(state => state.employees);
@@ -33,6 +34,7 @@ function AllEmployeesView() {
 
                                     <Link to={`/SingleEmployeeView/${employee.id}`}><button className={AllEmployeesViewCSS['viewButton']}>View</button></Link>
                                     <button className={AllEmployeesViewCSS['deleteButton']} onClick={() => handleDeleteEmployee(employee.id)}>Delete</button>
+                                    <Link to={`/EditEmployeeView/${employee.id}`}><button className={AllEmployeesViewCSS['editButton']}>Edit</button></Link>
                                 </div>
                             ))}
                         </div>

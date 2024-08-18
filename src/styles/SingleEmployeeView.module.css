@@ -28,7 +28,9 @@
     border: none;
     border-radius: 5px;
     margin-left: 10px;
+    position: absolute;
     cursor: pointer;
+    left: 115px;
     transition: background-color 0.6s ease, transform 0.6s ease;
   }
   
@@ -258,4 +260,29 @@
   font-size: 20px;
   text-align: center;
   margin-bottom: 60px;
+}
+
+.editButton {
+  background-color: #A0A0A0;
+  height: 25px;
+  width: 50px;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  margin: auto;
+  flex-shrink: 0;
+  transition: background-color 0.6s ease, transform 0.6s ease;
+  position: relative;
+  left: 125px;
+  top: -125px;
+}
+
+.editButton:hover {
+  background-color: #B0B0B0;
+  transform: scale(1.075);
+  box-shadow: 0 0 10px 1px #C0C0C0;
+  border: 1px solid;
 }
